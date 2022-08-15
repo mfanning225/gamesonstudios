@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>User profiles</h1>
+
+    {% if user.is_authenticated %}
+    {% comment %} <h3>Email {{ user.email }} {% endcomment %}
+    <h3>City: {{ user.userprofile.city }}</h3>
+    <h3>Country: {{ user.userprofile.country }}</h3> 
+    <h3>State/Province is {{ user.userprofile.stateProvince }}</h3>
+    {% endif %}
+
+    <a href="{% url 'edit-account' %}">Update Profile</a>
+
+
+    <h1>Your Score</h1>
+
+<div class="row">
+    <div class="col">
+
+        </div>
+    </div>
+</div>
+<br>
+
+<table class="table">
+
+    <thead>
+      <tr>
+        <th scope="col">created</th>
+        <th scope="col">Country</th>
+        <th scope="col">Province/State</th>
+        <th scope="col">City</th>
+        <th scope="col">Highscore</th>
+
+      </tr>
+    </thead>
+
+    {% for user_scores in snakeHighScores %}
+
+    <tbody>
+      <tr>
+        <td>{{user_scores.created}}</td>
+        <td>{{user_scores.country}}</td>
+        <td>{{user_scores.stateProvince}}</td>
+        <td>{{user_scores.city}}</td>
+        <td>{{user_scores.highScore}}</td>
+
+      </tr>
+
+        {% endfor %}
+    </tbody>
+  </table>
+
+
+{% endblock content %}

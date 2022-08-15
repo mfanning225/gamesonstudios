@@ -1,0 +1,73 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Snake</h1>
+
+<div class="card text-center m-2">
+  <div class="card-header">
+    Thank you! We will get back to you soon
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+
+<section id="snake" class="snake">
+
+<h1>Snake</h1>
+
+<form method="POST" enctype="multipart/form-data" >
+  {% csrf_token %}
+  <label for="fname">High Score</label><br>
+
+  {% if request.user.is_authenticated %}
+
+  <input readonly type="" id="" name="username" value="{{request.user.username}}"><br> 
+  {% comment %} <input readonly type="" id="" name="user" value="{{user.userprofile.user}}"><br>  {% endcomment %}
+  <input readonly type="number" id="highScore" name="highScore" value="{{highScore}}"><br>
+  <input readonly type="" id="" name="country" value="{{ user.userprofile.country }}"><br> 
+  <input readonly type="" id="" name="stateProvince" value="{{user.userprofile.stateProvince}}"><br> 
+  <input readonly type="" id="" name="city" value="{{user.userprofile.city}}"><br> 
+
+  {% endif %}
+
+  {% comment %} {% for lgp in last_game_played %}
+  {{lgp.next_allowed_update}}
+  {% endfor %}    {% endcomment %}
+
+
+
+  {% comment %} It is {% now "jS F Y H:i" %} <br> {% endcomment %}
+  <h3>{{mid}}</h3>
+  <h3>{{time_now_now.time_now|date:"Y-m-d H"}}</h3>
+
+  {% comment %} last_game_played.next_allowed_update > midnight_with_tzinfo {% endcomment %}
+
+  <input hidden="true" id="submit" type="submit" value="Submit">
+</form> 
+
+
+
+{% comment %} Ideal code condition is "<".  Switching for testing {% endcomment %}
+<p>{% if time_now_now.time_now == None or time_now_now.time_now|date:"Y-m-d H" > mid  %}</p>
+<div class="container-fluid">
+<div class="d-flex justify-content-center">
+
+<canvas id="game" /> 
+
+</div>
+</div>
+{% else %}
+<p>Already played today! Come back tomorrow<p>
+{% endif %}
+</section> 
+
+{% block footer %}{% endblock footer %}
+
+{% endblock content %}

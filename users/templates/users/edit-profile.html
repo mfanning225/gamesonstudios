@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>User profiles</h1>
+
+<form class="form" method="POST" action="{% url 'edit-account' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% for field in form %}
+    <div class="form__field">
+        <label for="formInput#text">{{field.label}}</label>
+        {{field}}
+    </div>
+    {% endfor %}
+
+    <input class="btn btn-primary" type="submit" value="Submit" />
+</form>
+
+
+
+    {% if user.is_authenticated %}
+    <h3>Email {{ user.email }}
+    <h3>City: {{ user.userprofile.city }}</h3>
+    <h3>Country: {{ user.userprofile.country }}</h3> 
+    <h3>State/Province is {{ user.userprofile.stateProvince }}</h3>
+    {% endif %}
+
+    <section class="edit_profile">section test</section>
+
+    {% endblock content %}

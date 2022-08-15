@@ -1,0 +1,88 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.index_body {
+  min-height: 450px;
+}
+
+.login {
+  min-height: 580px;
+}
+
+.edit_profile {
+  min-height: 450px;
+
+}
+
+/* SNAKE GAME */
+
+#snake {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+
+canvas {
+    box-shadow: black 20px 10px 50px;
+}
+
+
+  canvas {
+    position: absolute;
+    border: solid 5px #FB9F89; }
+  
+  @keyframes beat {
+    to {
+      transform: scale(1.4); } }
+  
+  .artboard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: absolute; }
+    .artboard .display {
+      display: flex;
+      position: absolute;
+      top: 0; }
+      .artboard .display h3 {
+        padding-left: 10px; }
+  
+  
+/* Login Form Design */
+
+.btn-color{
+  background-color: #0e1c36;
+  color: #fff;
+  
+}
+
+.profile-image-pic{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+
+
+.cardbody-color{
+  background-color: #ebf2fa;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+
+
